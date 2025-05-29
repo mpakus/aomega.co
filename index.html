@@ -1,341 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aomega - Web Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Kumbh+Sans:wght@600;700&family=Raleway:wght@400;500&family=Sora:wght@600;700&display=swap"
-      rel="stylesheet"
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Renat Ibragimov - Senior Full Stack Developer</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Renat Ibragimov - Senior Full Stack Ruby on Rails Developer"
+    />
+    <meta
+      name="keywords"
+      content="ruby, ror, ruby on rails, postgresql, mysql, mongodb, redis,react, vue, javascript, resume, jquery, css3, bootstrap, portfolio"
     />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Inter", "Raleway", sans-serif;
-        background: #0a0a0a;
-        color: #eaeaea;
-      }
+    <link rel="shortcut icon" href="favicon.ico" />
 
-      .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 220px;
-        background: rgba(10, 10, 10, 0.8);
-        border-right: 1px solid rgba(200, 150, 255, 0.3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 0;
-      }
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-      .sidebar h1 {
-        color: white;
-        margin-bottom: 40px;
-        font-size: 1.4rem;
-        letter-spacing: 2px;
-      }
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" />
+    <link rel="stylesheet" href="css/main.css?111" type="text/css" />
 
-      .sidebar nav {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .sidebar nav a {
-        text-decoration: none;
-        color: #c0aaff;
-        transition: 0.3s;
-        font-size: 0.95rem;
-      }
-
-      .sidebar nav a:hover {
-        color: #ffffff;
-      }
-
-      .sidebar h1,
-      .intro h2,
-      .articles h3 {
-        font-family: "Sora", "Kumbh Sans", sans-serif;
-      }
-
-      .main {
-        margin-left: 220px;
-        padding: 60px;
-        background: linear-gradient(
-          145deg,
-          rgba(200, 150, 255, 0.05),
-          rgba(255, 255, 255, 0.02)
-        );
-        min-height: 100vh;
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        margin-bottom: 40px;
-      }
-
-      .portrait {
-        border-radius: 50%;
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        border: 3px solid rgba(200, 150, 255, 0.4);
-      }
-
-      .intro {
-        max-width: 600px;
-      }
-
-      .intro h2 {
-        font-size: 2rem;
-        color: #b388ff;
-      }
-
-      .intro p {
-        margin-top: 10px;
-        color: #d8d8d8;
-        line-height: 1.6;
-      }
-
-      .links,
-      .articles {
-        margin-top: 40px;
-      }
-
-      .links a,
-      .articles a {
-        color: #c0aaff;
-        text-decoration: none;
-        margin-right: 20px;
-        transition: 0.3s;
-        display: inline-block;
-        margin-bottom: 10px;
-      }
-
-      .links a:hover,
-      .articles a:hover {
-        color: #ffffff;
-      }
-
-      .resume-btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: rgba(200, 150, 255, 0.2);
-        color: #fff;
-        border-radius: 30px;
-        border: 1px solid rgba(200, 150, 255, 0.4);
-        text-decoration: none;
-        transition: 0.3s;
-      }
-
-      .resume-btn:hover {
-        background: rgba(200, 150, 255, 0.4);
-      }
-
-      .portrait {
-        position: relative;
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid rgba(200, 150, 255, 0.4);
-        animation: glitch 2.5s infinite linear;
-        filter: contrast(1.2) brightness(1.1) grayscale(0.1);
-        box-shadow: 0 0 20px rgba(200, 150, 255, 0.3);
-      }
-
-      @keyframes glitch {
-        0% {
-          transform: translate(0, 0);
-          filter: hue-rotate(0deg) brightness(1) contrast(1.2);
-        }
-        10% {
-          transform: translate(-2px, -2px);
-          filter: hue-rotate(20deg) brightness(1.2);
-        }
-        20% {
-          transform: translate(2px, 1px);
-          filter: hue-rotate(-10deg) grayscale(0.3);
-        }
-        30% {
-          transform: scale(1.03);
-          filter: contrast(1.4) brightness(1.1);
-        }
-        40% {
-          transform: translate(-3px, 2px);
-          filter: hue-rotate(5deg);
-        }
-        50% {
-          transform: translate(0, 0);
-          filter: grayscale(0.2);
-        }
-        60% {
-          transform: translate(3px, -1px) scale(1.01);
-          filter: hue-rotate(-25deg);
-        }
-        70% {
-          transform: translate(-1px, 1px);
-          filter: contrast(1.5);
-        }
-        80% {
-          transform: scale(0.98);
-          filter: brightness(1.3) grayscale(0.4);
-        }
-        90% {
-          transform: translate(2px, -2px);
-          filter: hue-rotate(10deg);
-        }
-        100% {
-          transform: translate(0, 0);
-          filter: contrast(1.2);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .sidebar {
-          width: 100%;
-          height: auto;
-          position: relative;
-          border-right: none;
-          border-bottom: 1px solid rgba(200, 150, 255, 0.3);
-          padding: 20px 0;
-        }
-
-        .main {
-          margin-left: 0;
-          padding: 20px;
-        }
-
-        .header {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-
-        .intro {
-          max-width: 100%;
-        }
-
-        .links a,
-        .articles a {
-          margin-right: 10px;
-          font-size: 0.9rem;
-        }
-      }
-    </style>
+    <script src="js/modernizr.custom.js"></script>
   </head>
-  <body>
-    <div class="sidebar">
-      <h1>AOMEGA</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Articles</a>
-        <a href="#">Contact</a>
-      </nav>
-    </div>
 
-    <div class="main">
-      <div class="header">
-        <img src="imgs/me.jpg" alt="Aomega" class="portrait" />
-        <div class="intro">
-          <h2>Web Developer</h2>
-          <p>
-            I'm Aomega, a web developer passionate about modern UI/UX,
-            performance, and clean code. I build maintainable systems that scale
-            and delight users.
-          </p>
-          <div class="links">
-            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank"
-              >LinkedIn</a
-            >
-            <a href="mailto:you@example.com">Email Me</a>
+  <body class="page">
+    <div class="lm-animated-bg"></div>
+
+    <!-- Loading animation -->
+    <div class="preloader">
+      <div class="preloader-animation">
+        <div class="preloader-spinner"></div>
+      </div>
+    </div>
+    <!-- /Loading animation -->
+
+    <!-- Scroll To Top Button -->
+    <div class="lmpixels-scroll-to-top"><i class="lnr lnr-chevron-up"></i></div>
+    <!-- /Scroll To Top Button -->
+
+    <div class="page-scroll">
+      <div
+        id="page_container"
+        class="page-container bg-move-effect"
+        data-animation="transition-flip-in-right"
+      >
+        <!-- Header -->
+        <header id="site_header" class="header">
+          <div class="header-content clearfix">
+            <!-- Text Logo -->
+            <div class="text-logo">
+              <a href="/">
+                <!-- <div class="logo-symbol"></div> -->
+                <!-- <div class="logo-text">Renat <span>Ibragimov</span></div> -->
+              </a>
+            </div>
+            <!-- /Text Logo -->
+
+            <a class="menu-toggle mobile-visible">
+              <i class="fa fa-bars"></i>
+            </a>
           </div>
-          <a class="resume-btn" href="resume.pdf" download>Download Resume</a>
-        </div>
-      </div>
+        </header>
+        <!-- /Header -->
 
-      <div class="articles">
-        <h3 style="color: #b388ff">Latest Articles</h3>
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-1"
-          target="_blank"
-          >Mastering Web Animations</a
-        ><br />
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-2"
-          target="_blank"
-          >Dark UI Design Patterns</a
-        ><br />
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-3"
-          target="_blank"
-          >Optimizing Frontend Performance</a
-        ><br />
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-4"
-          target="_blank"
-          >Modern CSS Tricks</a
-        ><br />
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-5"
-          target="_blank"
-          >GitHub Portfolio Tips</a
-        ><br />
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-6"
-          target="_blank"
-          >Freelancing as a Web Dev</a
-        ><br />
-        <a
-          href="https://www.linkedin.com/posts/yourprofile/article-7"
-          target="_blank"
-          >Tools I Use Daily</a
-        >
+        <div id="main" class="site-main">
+          <div id="main-content" class="single-page-content">
+            <div id="primary" class="content-area">
+              <div
+                id="content"
+                class="page-content site-content single-post"
+                role="main"
+              >
+                <div id="home_content" class="home-content third-style">
+                  <div class="start-page-full-width">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="inner-content">
+                          <div
+                            class="fill-block"
+                            style="background-image: url(./img/renat.jpg)"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="inner-content inner-text-block">
+                          <div class="hp-text-block">
+                            <div class="owl-carousel text-rotation">
+                              <div class="item">
+                                <div class="sp-subtitle">
+                                  Full Stack Developer
+                                </div>
+                              </div>
+                              <div class="item">
+                                <div class="sp-subtitle">Software Engineer</div>
+                              </div>
+                              <div class="item">
+                                <div class="sp-subtitle">
+                                  Ruby on Rails Developer
+                                </div>
+                              </div>
+                              <div class="item">
+                                <div class="sp-subtitle">Team Leader</div>
+                              </div>
+                              <div class="item">
+                                <div class="sp-subtitle">
+                                  Mentor, Course Creator
+                                </div>
+                              </div>
+                            </div>
+
+                            <h2 class="hp-main-title">
+                              Renat <span>Ibragimov</span>
+                            </h2>
+                            <p>
+                              Based in Austin, Texas, I'm a passionate
+                              full-stack developer with over 12 years of
+                              dedicated experience in
+                              <strong>Ruby on Rails</strong> development. My
+                              expertise encompasses the entire web development
+                              spectrumfrom robust backend systems to dynamic
+                              frontend experiences using
+                              <strong
+                                >JavaScript, Hotwire, StimulusJS, Vue.js, and
+                                React</strong
+                              >.
+                            </p>
+                            <p>
+                              Throughout my career, I've successfully delivered
+                              dozens of production applications for diverse
+                              clients while continuously exploring innovative
+                              side projects that push technological boundaries.
+                            </p>
+                            <p>
+                              I believe in the power of clear communication and
+                              knowledge sharing to build exceptional software
+                              solutions.
+                            </p>
+                            <p>
+                              Looking to hire me as a full-time developer?<br />
+                              Let's connect at
+                              <a href="mailto:renat@aomega.co"
+                                >renat@aomega.co</a
+                              >
+                            </p>
+
+                            <div class="hp-buttons">
+                              <a
+                                href="/download/Renat-Ibragimov_Software-Engineer.pdf"
+                                target="_blank"
+                                class="btn btn-primary"
+                                >Download my Resume</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <div class="p-50"></div>
+
+                    <div class="block-title">
+                      <h2>What I Do</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="info-list-w-icon">
+                      <div class="info-block-w-icon">
+                        <div class="ci-icon">
+                          <i class="linecons linecons-diamond"></i>
+                        </div>
+
+                        <div class="ci-text">
+                          <h4>Web Development</h4>
+                          <p>
+                            I specialize in fullstack Ruby on Rails development
+                            creating custom web applications from concept to
+                            deployment with expertise in both backend
+                            architecture and modern frontend frameworks
+                            including Vuejs, React, and Hotwire. I build
+                            everything from lean MVPs to sophisticated
+                            platforms. My focus is delivering high-performing,
+                            scalable solutions that align perfectly with your
+                            business objectives and provide exceptional user
+                            experiences across the entire stack.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="info-block-w-icon">
+                        <div class="ci-icon">
+                          <i class="linecons linecons-world"></i>
+                        </div>
+
+                        <div class="ci-text">
+                          <h4>Architecture</h4>
+                          <p>
+                            I translate your vision into a strategic development
+                            roadmap that sets the foundation for long-term
+                            success. By analyzing your specific requirements and
+                            existing infrastructure, I craft technical solutions
+                            that not only solve today's challenges but
+                            anticipate tomorrow's opportunities. My expertise
+                            spans Ruby on Rails backend development and
+                            cutting-edge frontend technologies like React,
+                            Vue.js, and Hotwire, enabling me to architect
+                            applications that evolve alongside your business
+                            ambitions.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="info-list-w-icon">
+                      <div class="info-block-w-icon">
+                        <div class="ci-icon">
+                          <i class="linecons linecons-settings"></i>
+                        </div>
+
+                        <div class="ci-text">
+                          <h4>Consulting</h4>
+                          <p>
+                            Is your Ruby on Rails application struggling with
+                            legacy code or underperforming? I conduct
+                            comprehensive code audits to identify bottlenecks
+                            and technical debt, then provide strategic
+                            recommendations for optimization and refactoring. My
+                            approach ensures your application meets current
+                            industry standards while improving performance,
+                            maintainability, and scalability across both backend
+                            systems and frontend implementations.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="info-block-w-icon">
+                        <div class="ci-icon">
+                          <i class="linecons linecons-fire"></i>
+                        </div>
+
+                        <div class="ci-text">
+                          <h4>Performance</h4>
+                          <p>
+                            If your application has become sluggish under an
+                            increased user load or is weighed down by technical
+                            debt, I'm here to help. I'll optimize performance
+                            across your entire stackfrom database queries and
+                            backend processes to frontend rendering and user
+                            interactionswhile reducing server costs and
+                            implementing scalable solutions that grow with your
+                            business demands.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
+                    <div class="p-20"></div>
+
+                    <!-- Clients Slider -->
+                    <div class="block-title">
+                      <h2>Socials</h2>
+                    </div>
+
+                    <div class="row">
+                      <div class="social-icons col-xs-12 col-sm-12">
+                        <a
+                          href="https://github.com/mpakus"
+                          target="_blank"
+                          aria-label="GitHub"
+                          ><i class="fab fa-github"></i
+                        ></a>
+                        <a
+                          href="https://linkedin.com/in/mpakus"
+                          target="_blank"
+                          aria-label="LinkedIn"
+                          ><i class="fab fa-linkedin"></i
+                        ></a>
+                        <a
+                          href="https://twitter.com/mpak999"
+                          target="_blank"
+                          aria-label="Twitter"
+                          ><i class="fab fa-twitter"></i
+                        ></a>
+                        <a
+                          href="https://facebook.com/mpakus"
+                          target="_blank"
+                          aria-label="Facebook"
+                          ><i class="fab fa-facebook"></i
+                        ></a>
+                        <a
+                          href="https://instagram.com/onthemoon.man"
+                          target="_blank"
+                          aria-label="Instagram"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                      </div>
+                    </div>
+
+                    <div class="p-40"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="site-footer clearfix">
+          <div class="footer-copyrights">
+            <p>© 2025 Made in Austin ⭐︎ Texas</p>
+          </div>
+        </footer>
       </div>
     </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        ScrollReveal().reveal(".header", {
-          duration: 1000,
-          origin: "top",
-          distance: "50px",
-        });
-        ScrollReveal().reveal(".links", {
-          duration: 1000,
-          origin: "left",
-          distance: "30px",
-          delay: 200,
-        });
-        ScrollReveal().reveal(".resume-btn", {
-          duration: 1000,
-          origin: "right",
-          distance: "30px",
-          delay: 400,
-        });
-        ScrollReveal().reveal(".articles", {
-          duration: 1000,
-          origin: "bottom",
-          distance: "50px",
-          delay: 600,
-        });
-      });
-    </script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.shuffle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
