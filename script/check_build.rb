@@ -70,6 +70,13 @@ pages.each do |page|
   footer = ["Renat Ibragimov", "Senior software engineer · Made in Austin☆Texas", "© 2026"]
   errors << "#{relative}: footer copy drift" unless footer.all? { |text| html.include?(text) }
 
+  aurora = html.scan(/<div\b[^>]*data-aurora[^>]*>/)
+  errors << "#{relative}: expected one decorative aurora background" unless aurora.length == 1
+  errors << "#{relative}: expected three aurora waves" unless html.scan(/<span\b[^>]*aurora__wave[^>]*>/).length == 3
+  errors << "#{relative}: aurora must be hidden from assistive technology" unless html.match?(/<div\b[^>]*aria-hidden="true"[^>]*class="aurora"|<div\b[^>]*class="aurora"[^>]*aria-hidden="true"/)
+  errors << "#{relative}: expected one aurora motion control" unless html.scan(/<button\b[^>]*data-aurora-toggle[^>]*>/).length == 1
+  errors << "#{relative}: missing aurora script" unless html.include?('src="/js/aurora.js"')
+
   section = relative.split("/").first
   active_links = html.scan(/<a\b[^>]*aria-current="page"[^>]*>/)
   if NAV_SECTIONS.include?(section)
@@ -85,4 +92,4 @@ errors << "Archived prev/_index.html was not preserved" unless BUILD.join("prev/
 
 abort errors.join("\n") unless errors.empty?
 
-puts "PASS: #{pages.length} generated pages; routes, headings, IDs, images, links, navigation, metadata, footer, and legacy archive checked"
+puts "PASS: #{pages.length} generated pages; routes, headings, IDs, images, links, navigation, metadata, footer, aurora, and legacy archive checked"

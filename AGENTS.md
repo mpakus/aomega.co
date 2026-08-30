@@ -13,6 +13,7 @@ Maintain aomega.co as an accurate, fast, accessible static portfolio for Renat I
 - `source/layouts/layout.slim`: common page shell.
 - `source/partials/`: shared head, header, navigation, and footer.
 - `source/css/site.css`: shared design system and responsive behavior.
+- `source/js/aurora.js`: dependency-free controls for the shared CSS Aurora background.
 - `source/img/projects/`: public product screenshots.
 - `source/img/previews/`: browser-QA and design previews.
 - `source/download/`: public résumé and downloads.
@@ -57,6 +58,7 @@ Do not commit, push, deploy, publish, or remove legacy assets unless the user as
 - Keep desktop and mobile navigation synchronized and mark the current route with `aria-current="page"`.
 - Reuse the header, hero, project cards, panels, split sections, case-study layout, article list, CTA, and footer patterns from `css/site.css`.
 - Preserve the `1180px` shell, `68ch` reading measure, dark palette, Poppins typography, restrained motion, and existing breakpoints.
+- Keep the Aurora decorative, continuously animated across the full viewport, pausable, behind content, and static whenever reduced motion is requested.
 - Use descriptive destination text for links. External new-tab links require `rel="noreferrer"`.
 - Images require useful alt text, intrinsic width and height, and an intentional crop. Prefer real product UI to generated mockups.
 - Do not add another framework, dependency, JavaScript interaction, or new abstraction for content that existing Slim and CSS can express.

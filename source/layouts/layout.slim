@@ -2,7 +2,13 @@ doctype html
 html lang="en"
   = partial "partials/head"
   body
+    #aurora-background.aurora data-aurora="" aria-hidden="true"
+      span.aurora__wave.aurora__wave--one
+      span.aurora__wave.aurora__wave--two
+      span.aurora__wave.aurora__wave--three
     a.skip-link href="#main" Skip to content
     = partial "partials/header"
     = yield
     = partial "partials/footer"
+    button.aurora-toggle type="button" data-aurora-toggle="" aria-controls="aurora-background" aria-pressed="false" Pause motion
+    script src="/js/aurora.js" defer=true

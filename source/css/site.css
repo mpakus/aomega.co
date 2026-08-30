@@ -3,6 +3,7 @@
   --bg: #141318;
   --bg-deep: #0f0e13;
   --surface: #201f27;
+  --surface-glass: rgba(32, 31, 39, 0.9);
   --surface-raised: #292733;
   --surface-violet: #27294c;
   --surface-soft: #302d3c;
@@ -34,6 +35,8 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   min-width: 320px;
   margin: 0;
   overflow-x: clip;
@@ -47,6 +50,115 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.aurora {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(124, 58, 237, 0.22), transparent 55%),
+    radial-gradient(ellipse at 82% 72%, rgba(237, 111, 189, 0.13), transparent 52%);
+  pointer-events: none;
+}
+
+.aurora__wave {
+  position: absolute;
+  display: block;
+  border-radius: 48% 52% 42% 58% / 55% 38% 62% 45%;
+  filter: blur(64px) saturate(120%);
+  mix-blend-mode: screen;
+  opacity: 0.58;
+  will-change: transform;
+}
+
+.aurora__wave--one {
+  width: 115vmax;
+  height: 68vmax;
+  inset-block-start: -38vmax;
+  inset-inline-start: -28vmax;
+  background: radial-gradient(ellipse, rgba(124, 58, 237, 0.82), rgba(82, 39, 255, 0.2) 52%, transparent 72%);
+}
+
+.aurora__wave--two {
+  width: 88vmax;
+  height: 76vmax;
+  inset-block-start: 4vmax;
+  inset-inline-end: -42vmax;
+  background: radial-gradient(ellipse, rgba(237, 111, 189, 0.55), rgba(124, 58, 237, 0.14) 55%, transparent 74%);
+}
+
+.aurora__wave--three {
+  width: 110vmax;
+  height: 62vmax;
+  inset-block-end: -38vmax;
+  inset-inline-start: -18vmax;
+  background: radial-gradient(ellipse, rgba(82, 39, 255, 0.5), rgba(169, 149, 255, 0.12) 54%, transparent 74%);
+}
+
+.aurora[data-paused="true"] .aurora__wave {
+  animation-play-state: paused;
+}
+
+.aurora-toggle {
+  position: fixed;
+  z-index: 45;
+  inset-inline-end: max(1rem, env(safe-area-inset-right));
+  inset-block-end: max(1rem, env(safe-area-inset-bottom));
+  min-height: 44px;
+  padding-inline: 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(20, 19, 24, 0.82);
+  backdrop-filter: blur(14px);
+  color: var(--text-soft);
+  cursor: pointer;
+  font: 600 0.75rem/1 "Poppins", system-ui, sans-serif;
+  opacity: 0.62;
+  transition: background-color 140ms ease-out, color 140ms ease-out, opacity 140ms ease-out;
+}
+
+.aurora-toggle:hover,
+.aurora-toggle:focus-visible {
+  background: var(--surface-raised);
+  color: var(--text);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .aurora__wave--one {
+    animation: aurora-drift-one 15s ease-in-out infinite alternate;
+  }
+
+  .aurora__wave--two {
+    animation: aurora-drift-two 19s ease-in-out infinite alternate;
+  }
+
+  .aurora__wave--three {
+    animation: aurora-drift-three 23s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes aurora-drift-one {
+  from { transform: translate3d(-7%, -5%, 0) rotate(-7deg) scale(1); }
+  to { transform: translate3d(13%, 11%, 0) rotate(8deg) scale(1.08); }
+}
+
+@keyframes aurora-drift-two {
+  from { transform: translate3d(7%, -10%, 0) rotate(8deg) scale(0.96); }
+  to { transform: translate3d(-15%, 9%, 0) rotate(-10deg) scale(1.1); }
+}
+
+@keyframes aurora-drift-three {
+  from { transform: translate3d(-8%, 9%, 0) rotate(5deg) scale(1.04); }
+  to { transform: translate3d(14%, -12%, 0) rotate(-8deg) scale(0.94); }
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -452,7 +564,7 @@ strong {
 .proof-item {
   min-height: 9.5rem;
   padding: 1.6rem;
-  background: var(--surface);
+  background: var(--surface-glass);
 }
 
 .proof-value {
@@ -517,7 +629,7 @@ strong {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.16);
   transition: transform 180ms ease-out, border-color 180ms ease-out, box-shadow 180ms ease-out;
 }
@@ -622,7 +734,7 @@ strong {
   padding: clamp(1.4rem, 3vw, 2rem);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
 }
 
 .panel-index {
@@ -746,7 +858,7 @@ strong {
   padding: 1.5rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
 }
 
 .case-fact {
@@ -830,7 +942,7 @@ strong {
   padding: 1.35rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
 }
 
 .aside-card h2 {
@@ -900,7 +1012,7 @@ strong {
   padding: 1.5rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
 }
 
 .skill-group h3 {
@@ -924,7 +1036,7 @@ strong {
   padding: clamp(1.5rem, 4vw, 2.5rem);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
 }
 
 .experience-card-header {
@@ -993,7 +1105,7 @@ strong {
   padding: 1.6rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--surface-glass);
   text-decoration: none;
   transition: transform 160ms ease-out, border-color 160ms ease-out;
 }
@@ -1241,6 +1353,10 @@ strong {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .aurora-toggle {
+    display: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
@@ -1254,6 +1370,11 @@ strong {
 }
 
 @media (forced-colors: active) {
+  .aurora,
+  .aurora-toggle {
+    display: none;
+  }
+
   :focus-visible {
     outline-color: Highlight;
   }

@@ -129,6 +129,7 @@ The source of truth is `source/css/site.css`.
 | `--bg` | `#141318` | Main dark background |
 | `--bg-deep` | `#0f0e13` | Footer and deeper surfaces |
 | `--surface` | `#201f27` | Cards and panels |
+| `--surface-glass` | `rgba(32, 31, 39, 0.9)` | Cards and panels with 10% transparency over the Aurora |
 | `--surface-raised` | `#292733` | Raised elements |
 | `--surface-violet` | `#27294c` | Branded feature surfaces |
 | `--text` | `#f7f4fb` | Primary text |
@@ -153,7 +154,11 @@ The source of truth is `source/css/site.css`.
 
 Reuse the existing header, mobile `<details>` navigation, hero, proof strip, project card, panel, tag list, split section, timeline, case-study layout, article list, quote, CTA, contact card, and footer styles. Add a component only when existing patterns cannot express the content clearly.
 
+Standard cards and information panels use the shared translucent surface token so the Aurora remains subtly visible without reducing text contrast. Screenshot media and branded feature surfaces remain opaque.
+
 Project screenshots use a visible border, rounded frame, subtle inner outline, and top-centered crop. Decorative animation is intentionally restrained. Hover motion must not be required to understand or use the site.
+
+The shared page background includes a native CSS Aurora in violet, pink, and deep purple with dependency-free JavaScript controls. It is decorative and hidden from assistive technology, fills the viewport behind every page while scrolling, and animates continuously with a visible pause control. It pauses when the tab is hidden and renders without motion when `prefers-reduced-motion` is enabled. It must not introduce React, canvas/WebGL libraries, or another frontend runtime.
 
 ### Responsive behavior
 
@@ -177,7 +182,7 @@ Project screenshots use a visible border, rounded frame, subtle inner outline, a
 
 ## Technical and publishing contract
 
-- Hosting: GitHub Pages from `github.com/mpakus/aomega.co`, custom domain `aomega.co` through `source/CNAME`.
+- Hosting: GitHub Pages from `github.com/mpakus/aomega.co`, with `aomega.co` configured in the repository's Pages settings. Custom Actions deployments ignore `source/CNAME`.
 - Authoring: Middleman 4.6.3 with Slim 5.2.2 on Ruby 3.4.2. Dependencies are locked in `Gemfile.lock` for macOS and generic Ruby/Linux platforms.
 - Delivery: `bundle exec middleman build` compiles `source/` into the ignored `build/` directory. The output remains plain static HTML, CSS, images, and downloads with no client-side framework or router.
 - Shared page chrome lives in `source/layouts/layout.slim` and `source/partials/`; shared styles live in `source/css/site.css`.
