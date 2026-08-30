@@ -10,5 +10,6 @@ html lang="en"
     = partial "partials/header"
     = yield
     = partial "partials/footer"
-    button.aurora-toggle type="button" data-aurora-toggle="" aria-controls="aurora-background" aria-pressed="false" Pause motion
+    button.aurora-toggle type="button" data-aurora-toggle="" aria-controls="aurora-background" aria-pressed="false" aria-label="Pause motion" title="Pause motion"
+      img src="/img/pause.svg" alt="" width="20" height="20" aria-hidden="true" data-aurora-toggle-icon=""
     script src="/js/aurora.js" defer=true

@@ -104,19 +104,27 @@ body {
 .aurora-toggle {
   position: fixed;
   z-index: 45;
+  display: grid;
+  place-items: center;
   inset-inline-end: max(1rem, env(safe-area-inset-right));
   inset-block-end: max(1rem, env(safe-area-inset-bottom));
+  inline-size: 44px;
   min-height: 44px;
-  padding-inline: 0.9rem;
+  padding: 0;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   background: rgba(20, 19, 24, 0.82);
   backdrop-filter: blur(14px);
   color: var(--text-soft);
   cursor: pointer;
-  font: 600 0.75rem/1 "Poppins", system-ui, sans-serif;
   opacity: 0.62;
   transition: background-color 140ms ease-out, color 140ms ease-out, opacity 140ms ease-out;
+}
+
+.aurora-toggle img {
+  inline-size: 20px;
+  block-size: 20px;
+  filter: brightness(0) invert(1);
 }
 
 .aurora-toggle:hover,
