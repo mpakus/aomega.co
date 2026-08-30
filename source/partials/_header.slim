@@ -1,0 +1,12 @@
+header.site-header
+  .header-inner.shell
+    a.brand href="/" aria-label="Renat Ibragimov home"
+      span.brand-mark aria-hidden="true"
+        img src="/img/aomega-logo.png" alt="" width="40" height="40"
+      span.brand-name
+        | Renat Ibragimov
+        span.brand-role Senior software engineer
+    = partial "partials/navigation", locals: { nav_class: "site-nav", aria_label: "Primary navigation", mobile: false }
+    details.mobile-nav
+      summary Menu
+      = partial "partials/navigation", locals: { nav_class: nil, aria_label: "Mobile navigation", mobile: true }

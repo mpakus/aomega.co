@@ -120,7 +120,7 @@ Do not turn a case study into a feature dump. Prefer decisions, constraints, and
 
 ## Visual system
 
-The source of truth is `css/site.css`.
+The source of truth is `source/css/site.css`.
 
 ### Color tokens
 
@@ -177,17 +177,20 @@ Project screenshots use a visible border, rounded frame, subtle inner outline, a
 
 ## Technical and publishing contract
 
-- Hosting: GitHub Pages from `github.com/mpakus/aomega.co`, custom domain `aomega.co` through `CNAME`.
-- Delivery: static HTML and CSS. No build step, framework, client-side router, CMS, or JavaScript dependency is required for the redesigned pages.
-- Shared styles live in `/css/site.css`; root-relative URLs keep nested pages consistent.
-- Public pages include a title, description, canonical URL, theme color, Open Graph title/description/URL/image, favicon, font loading, and the shared stylesheet.
+- Hosting: GitHub Pages from `github.com/mpakus/aomega.co`, custom domain `aomega.co` through `source/CNAME`.
+- Authoring: Middleman 4.6.3 with Slim 5.2.2 on Ruby 3.4.2. Dependencies are locked in `Gemfile.lock` for macOS and generic Ruby/Linux platforms.
+- Delivery: `bundle exec middleman build` compiles `source/` into the ignored `build/` directory. The output remains plain static HTML, CSS, images, and downloads with no client-side framework or router.
+- Shared page chrome lives in `source/layouts/layout.slim` and `source/partials/`; shared styles live in `source/css/site.css`.
+- Page-specific metadata lives in Slim frontmatter. Generated public pages include a title, description, canonical URL, theme color, Open Graph title/description/URL/image, favicon, font loading, and the shared stylesheet.
+- Root-relative URLs keep nested pages consistent.
 - The homepage carries Person JSON-LD. Add more structured data only when the visible content supports it.
-- New public pages must be added to `sitemap.xml`. Site-wide identity changes must also be reviewed in `manifest.json`, `robots.txt`, `CNAME`, the résumé, navigation, and footer.
-- Keep current pages independent of legacy files under `prev/`, older CSS/JS bundles, and archived assets.
+- New public pages must be added to `source/sitemap.xml`. Site-wide identity changes must also be reviewed in `source/manifest.json`, `source/robots.txt`, `source/CNAME`, the résumé, navigation, and footer.
+- `.github/workflows/pages.yml` builds and uploads `build/` with GitHub's Pages artifact workflow. The repository's Pages source must be set to GitHub Actions before the first deployment.
+- Keep current pages independent of legacy files under `source/prev/`, older CSS/JS bundles, and archived assets.
 
 ## Image and preview rules
 
-- Product assets belong in `img/projects/`; browser QA previews belong in `img/previews/`.
+- Product assets belong in `source/img/projects/`; browser QA previews belong in `source/img/previews/`.
 - Prefer real product UI over generated mockups. Use a landing-page capture only when an authenticated product screen is unavailable.
 - Crop deliberately, remove private data, and keep text legible enough to communicate product shape.
 - Preserve aspect ratio and record intrinsic dimensions in HTML.
@@ -198,6 +201,7 @@ Project screenshots use a visible border, rounded frame, subtle inner outline, a
 
 Before calling a site change complete:
 
+- Run `rtk bundle check`, `rtk bundle exec middleman build`, and `rtk bundle exec ruby script/check_build.rb`.
 - Parse every public HTML page and confirm exactly one `h1` and no duplicate IDs.
 - Confirm local links and image targets exist.
 - Confirm each image has alt text and explicit dimensions.

@@ -1,0 +1,32 @@
+- title = current_page.data.title || "Renat Ibragimov — Senior Software Engineer"
+- description = current_page.data.description || "Portfolio of senior software engineer Renat Ibragimov."
+- canonical = current_page.data.canonical || "https://aomega.co#{current_page.url}"
+- og_title = current_page.data.og_title || title
+- og_description = current_page.data.og_description || description
+- og_url = current_page.data.og_url || canonical
+- og_image = current_page.data.og_image || "https://aomega.co/img/head-320x320.png"
+
+head
+  meta charset="utf-8"
+  meta name="viewport" content="width=device-width, initial-scale=1"
+  title = title
+  meta name="description" content=description
+  link rel="canonical" href=canonical
+  meta name="theme-color" content="#141318"
+  meta property="og:type" content=(current_page.data.og_type || "website")
+  meta property="og:title" content=og_title
+  meta property="og:description" content=og_description
+  meta property="og:url" content=og_url
+  meta property="og:image" content=og_image
+  - if current_page.data.twitter_card
+    meta name="twitter:card" content=current_page.data.twitter_card
+  link rel="icon" href="/favicon.ico" sizes="any"
+  link rel="apple-touch-icon" href="/apple-icon-180x180.png"
+  link rel="manifest" href="/manifest.json"
+  link rel="preconnect" href="https://fonts.googleapis.com"
+  link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=true
+  link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"
+  link rel="stylesheet" href="/css/site.css"
+  - if current_page.data.person_schema
+    script type="application/ld+json"
+      == JSON.pretty_generate(person_schema)

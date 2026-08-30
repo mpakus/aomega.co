@@ -1,0 +1,116 @@
+---
+title: AI Engineering — Renat Ibragimov
+description: Practical AI product engineering across document intelligence, commerce,
+  MCP, localization, and developer workflows.
+canonical: https://aomega.co/ai/
+og_title: AI Engineering — Renat Ibragimov
+og_description: How I turn AI models into reviewable, permission-aware product capabilities.
+og_url: https://aomega.co/ai/
+og_image: https://aomega.co/img/projects/papereg.jpg
+nav: ai
+---
+
+main#main
+  header.page-hero.page-hero-wide.shell
+    span.eyebrow AI engineering
+    h1 I build the system around the model.
+    p Useful AI features need more than a prompt. They need clear permissions, structured outputs, review states, retries, observability, cost boundaries, and a deterministic path when the model is uncertain.
+  section.section-compact.shell
+    div.panel-grid
+      article.panel
+        span.panel-index 01
+        h3 Find the real bottleneck
+        p I start with work people already repeat: reading documents, entering product data, translating content, or navigating complex product data.
+      article.panel
+        span.panel-index 02
+        h3 Keep people in control
+        p Models propose fields, values, copy, or actions. The product makes confidence, review, and correction part of the normal workflow.
+      article.panel
+        span.panel-index 03
+        h3 Engineer the failure path
+        p Permission checks, timeouts, retries, stored state, and deterministic validation keep uncertain output from becoming silent product failure.
+  section.section.shell.split
+    div.split-intro
+      span.eyebrow Document intelligence
+      h2 From paper to structured data.
+      p In Papereg, AI is embedded inside a complete document workflow rather than presented as a chat box.
+      a.text-link href="/work/papereg/"
+        | Read the Papereg case study 
+        span aria-hidden="true" →
+    div.prose
+      section
+        h3 PDF structure parsing
+        p Uploaded forms are analyzed for labels, sections, field types, and layout so users can review a proposed digital form instead of rebuilding it by hand.
+      section
+        h3 OCR and batch extraction
+        p Photos, scans, handwriting, checkboxes, and multi-page PDFs can become draft records. Failed files can be retried without losing successful results.
+      section
+        h3 Permission-aware assistance
+        p The workspace assistant can answer questions and help create or fill drafts within a user’s permissions. Destructive, approval, and administration actions stay outside the assistant’s authority.
+  section.section.shell.split
+    div.split-intro
+      span.eyebrow Multimodal commerce
+      h2 Turn product photos into useful inventory.
+      p ResellerIO combines vision, structured product data, image workflows, pricing context, and channel-specific copy.
+      a.text-link href="/work/resellerio/"
+        | Read the ResellerIO case study 
+        span aria-hidden="true" →
+    div.prose
+      section
+        h3 Extraction before generation
+        p Photos become a structured draft with brand, category, size, color, material, and condition. Structured data keeps downstream features consistent.
+      section
+        h3 Image preparation
+        p Background cleanup, crop preparation, and lifestyle image generation help sellers create a reusable asset set from the same intake.
+      section
+        h3 Drafts, not automatic publishing
+        p Marketplace-specific titles, descriptions, and tags are presented for review. The seller remains responsible for what goes live.
+  section.section.shell.split
+    div.split-intro
+      span.eyebrow Project intelligence
+      h2 Keep engineering context connected.
+      p HermIIS links product planning, decisions, documents, GitHub activity, and delivery analytics so AI can work from the same evidence as the team.
+      a.text-link href="/work/hermiis/"
+        | Read the HermIIS case study 
+        span aria-hidden="true" →
+    div.prose
+      section
+        h3 Graph-backed context
+        p Tasks, features, decisions, documents, pull requests, and commits remain connected instead of becoming isolated pages.
+      section
+        h3 Evidence-aware assistance
+        p Semantic search, graph expansion, and citation chains help people inspect the sources behind generated answers, reviews, and task proposals.
+      section
+        h3 Suggestions remain suggestions
+        p AI can surface missing work or propose a decision record, while the team retains authority over scope, priorities, and architectural direction.
+  section.section.shell
+    div.section-heading
+      div
+        span.eyebrow Integration work
+        h2 AI inside existing products.
+      p I also integrate AI into mature systems where security, data ownership, and operational safety matter more than novelty.
+    div.panel-grid
+      article.panel
+        span.panel-index MCP
+        h3 OAuth-secured product access
+        p Designed and built a Model Context Protocol server that lets ChatGPT integrate with product capabilities through explicit authentication and authorization.
+      article.panel
+        span.panel-index I18N
+        h3 Localization automation
+        p Combined OpenAI and DeepL APIs with an existing internationalization workflow to accelerate translation across Spanish, Chinese, Japanese, and Portuguese.
+      article.panel
+        span.panel-index DEV
+        h3 Agent-assisted engineering
+        p Use coding agents for focused implementation, audits, migrations, tests, documentation, and repetitive maintenance—while preserving review and verification.
+  section.section.shell
+    div.quote-card
+      blockquote “The model can be uncertain. The product experience cannot be careless.”
+  section.section.shell
+    div.cta
+      div.cta-copy
+        span.eyebrow Build with intent
+        h2 Have an AI idea that needs product discipline?
+        p I can help turn an interesting capability into a secure, understandable, and maintainable workflow.
+      div.button-row
+        a.button.button-primary href="mailto:renat@aomega.co" Discuss the product
+        a.button.button-secondary href="/work/" See the products

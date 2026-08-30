@@ -1,0 +1,87 @@
+---
+title: Texas Heavy Case Study — Renat Ibragimov
+description: 'How Renat Ibragimov built Texas Heavy: an event discovery and community
+  data platform for heavy music across Texas.'
+canonical: https://aomega.co/work/texas-heavy/
+og_title: Texas Heavy Case Study — Renat Ibragimov
+og_description: Making scattered Texas heavy music events easier to discover.
+og_url: https://aomega.co/work/texas-heavy/
+og_image: https://aomega.co/img/projects/texas-heavy.jpg
+nav: work
+---
+
+main#main
+  header.case-hero.shell
+    div.case-hero-copy
+      span.eyebrow Case study · Event discovery
+      h1 Texas Heavy
+      p.hero-lede A discovery platform that connects heavy music fans with concerts, festivals, bands, venues, galleries, and classifieds across Texas.
+      div.button-row
+        a.button.button-primary href="https://texas-heavy.com" target="_blank" rel="noreferrer" Visit Texas Heavy ↗
+        a.button.button-secondary href="/work/" All projects
+    dl.case-facts
+      div.case-fact
+        dt Role
+        dd Product engineer and owner
+      div.case-fact
+        dt Focus
+        dd Events, ingestion, search, community
+      div.case-fact
+        dt Stack
+        dd Elixir, Phoenix, PostgreSQL
+      div.case-fact
+        dt Status
+        dd Independent product · Active
+  div.case-media.shell
+    img src="/img/projects/texas-heavy.jpg" alt="Texas Heavy homepage showing concert and festival discovery" width="1280" height="720"
+  section.section.shell.case-layout
+    div.prose
+      section
+        span.eyebrow The problem
+        h2 Local scenes are active, but their information is fragmented.
+        p Show announcements live on venue calendars, flyers, ticketing sites, and social posts. Fans miss events, bands and venues are represented inconsistently, and duplicate listings make a calendar less trustworthy.
+      section
+        span.eyebrow The product
+        h2 Build the scene around connected data.
+        p Texas Heavy treats an event as part of a larger network of bands, venues, cities, media, and community activity.
+        ul
+          li Browse upcoming concerts and festivals across Texas cities.
+          li Connect event lineups to reusable band and venue profiles.
+          li Normalize dates, locations, source links, and event identity during ingestion.
+          li Search and filter without flattening useful genre or location context.
+          li Extend discovery with galleries and community classifieds.
+          li Give administrators tools to review, correct, and enrich imported data.
+      section
+        span.eyebrow The reliability problem
+        h2 A useful calendar has to resist duplicates and stale data.
+        p Event sources describe the same show differently. URLs change, lineup order varies, and dates can be reformatted. I built normalization and upsert behavior around canonical source identity, then added review paths for ambiguous records.
+        p The goal is not maximum ingestion volume; it is a calendar people can trust enough to make plans from.
+      section
+        span.eyebrow Engineering ownership
+        h2 Domain modeling made the frontend possible.
+        p I owned the event, band, venue, city, gallery, and classified models; ingestion and deduplication; admin workflows; search and discovery pages; deployment; and visual product design. This project demonstrates the data and operational work behind an interface that should feel simple.
+    aside.case-aside aria-label="Texas Heavy summary"
+      div.aside-card
+        h2 Core capabilities
+        ul
+          li Concert and festival calendar
+          li Band and venue profiles
+          li Source normalization
+          li Duplicate-resistant ingestion
+          li City discovery and search
+          li Galleries and classifieds
+      div.aside-card
+        h2 What this demonstrates
+        ul
+          li Event data modeling
+          li Ingestion reliability
+          li Search and discovery
+          li Admin workflow design
+          li Community product thinking
+  section.section.shell
+    div.cta
+      div.cta-copy
+        span.eyebrow Back to the beginning
+        h2 Papereg
+        p See how PDFs, scans, photos, and handwriting become structured forms and reviewable records.
+      a.button.button-primary href="/work/papereg/" Read the case study

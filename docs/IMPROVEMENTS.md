@@ -7,7 +7,7 @@ Companion contract: [SITE-SPEC.md](SITE-SPEC.md)
 
 The site should become stronger through better evidence, not more decoration. Each improvement should help a hiring manager, technical leader, potential client, or developer understand Renat's work and take the next step with less uncertainty.
 
-Keep the implementation static and dependency-free until a demonstrated publishing need justifies more machinery.
+Keep the generated site static and the Middleman/Slim toolchain minimal. Add machinery only when a demonstrated publishing need justifies it.
 
 ## Completed foundation
 
@@ -20,6 +20,8 @@ Keep the implementation static and dependency-free until a demonstrated publishi
 - [x] Establish a shared dark visual system, responsive navigation, accessible focus states, reduced-motion handling, and reusable static components.
 - [x] Add canonical metadata, Open Graph metadata, Person JSON-LD, a sitemap, robots rules, manifest, custom 404 page, and GitHub Pages domain configuration.
 - [x] Complete structural HTML checks and desktop/mobile browser checks for the redesign.
+- [x] Move page sources to Slim, extract shared layout/navigation/footer partials, and add a reproducible Middleman build.
+- [x] Add a GitHub Actions workflow that publishes the generated `build/` artifact to GitHub Pages.
 
 ## P0 — accuracy and publishing confidence
 
@@ -157,7 +159,7 @@ Refresh a product image when the UI changes enough to make the current screensho
 
 These are not default improvements:
 
-- A JavaScript framework, static-site generator, CMS, component build system, or client-side router.
+- Another site framework, a CMS, a client-side component system, or a client-side router.
 - A theme switcher; the dark visual identity is deliberate.
 - A contact-form backend; direct email is simpler and more reliable at current volume.
 - A `/now/`, `/uses/`, services, newsletter, or changelog page without a real update cadence or audience need.

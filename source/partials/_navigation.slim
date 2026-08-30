@@ -1,0 +1,6 @@
+nav class=nav_class aria-label=aria_label
+  ul
+    - navigation_links.each do |item|
+      li
+        a href=item[:href] class=(item[:resume] && !mobile ? "resume-link" : nil) aria-current=(item[:key] && current_page.data.nav == item[:key] ? "page" : nil)
+          = mobile && item[:resume] ? "Download résumé" : item[:label]

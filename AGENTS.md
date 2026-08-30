@@ -6,29 +6,32 @@ Maintain aomega.co as an accurate, fast, accessible static portfolio for Renat I
 
 ## Repository shape
 
-- `index.html`: homepage.
-- `work/index.html`: project index.
-- `work/*/index.html`: full case studies.
-- `ai/`, `experience/`, `writing/`, `about/`, `contact/`: primary pages.
-- `css/site.css`: shared design system and responsive behavior.
-- `img/projects/`: public product screenshots.
-- `img/previews/`: browser-QA and design previews.
-- `download/`: public résumé and downloads.
-- `sitemap.xml`, `robots.txt`, `manifest.json`, `CNAME`, `404.html`: GitHub Pages and discovery surfaces.
-- `prev/`, older CSS/JS, and archived assets: legacy material; do not modify or delete without explicit scope.
+- `source/index.html.slim`: homepage source.
+- `source/work/index.html.slim`: project index source.
+- `source/work/*/index.html.slim`: full case-study sources.
+- `source/ai/`, `source/experience/`, `source/writing/`, `source/about/`, `source/contact/`: primary page sources.
+- `source/layouts/layout.slim`: common page shell.
+- `source/partials/`: shared head, header, navigation, and footer.
+- `source/css/site.css`: shared design system and responsive behavior.
+- `source/img/projects/`: public product screenshots.
+- `source/img/previews/`: browser-QA and design previews.
+- `source/download/`: public résumé and downloads.
+- `source/sitemap.xml`, `source/robots.txt`, `source/manifest.json`, `source/CNAME`, `source/404.html.slim`: GitHub Pages and discovery surfaces.
+- `source/prev/`, older CSS/JS, and archived assets: legacy material; do not modify or delete without explicit scope.
+- `build/`: generated output; never edit or commit it.
 
-The site is static HTML and CSS hosted through GitHub Pages at `aomega.co`. Preserve that architecture unless the user explicitly requests a different publishing system.
+The site is authored with Middleman 4 and Slim, then generated as static HTML and CSS for GitHub Pages at `aomega.co`. Preserve that small build architecture unless the user explicitly requests a different publishing system.
 
 ## Required workflow
 
 1. Inspect the branch and `rtk git status --short`; preserve unrelated and uncommitted work.
 2. Prefix every shell command with `rtk`.
-3. Read the complete affected HTML and nearby shared styles before editing.
+3. Read the complete affected Slim template, shared layout or partial, and nearby styles before editing.
 4. Search all pages, metadata, the résumé, and docs for the vocabulary being changed.
 5. Treat current implementation and verified product sources as authoritative; keep planned work in `docs/IMPROVEMENTS.md`.
-6. Make the smallest coherent static change. Reuse existing components and CSS tokens before adding markup or styles.
+6. Make the smallest coherent source change. Reuse the layout, partials, helpers, components, and CSS tokens before adding markup or styles.
 7. Verify the affected routes at desktop and narrow-mobile widths when presentation changes.
-8. Run `rtk git diff --check` and report exactly what was and was not verified.
+8. Run `rtk bundle exec middleman build`, `rtk bundle exec ruby script/check_build.rb`, and `rtk git diff --check`; report exactly what was and was not verified.
 
 Do not commit, push, deploy, publish, or remove legacy assets unless the user asks.
 
@@ -46,6 +49,8 @@ Do not commit, push, deploy, publish, or remove legacy assets unless the user as
 
 ## Page and component rules
 
+- Edit `source/**/*.html.slim`, never generated `build/**/*.html`.
+- Use YAML frontmatter for page-specific title, description, canonical, Open Graph, navigation, and schema settings.
 - Use root-relative internal URLs and trailing-slash directory routes.
 - Keep one descriptive `h1` per page and meaningful heading order.
 - Include `main#main` and a Skip to content link.
@@ -54,7 +59,7 @@ Do not commit, push, deploy, publish, or remove legacy assets unless the user as
 - Preserve the `1180px` shell, `68ch` reading measure, dark palette, Poppins typography, restrained motion, and existing breakpoints.
 - Use descriptive destination text for links. External new-tab links require `rel="noreferrer"`.
 - Images require useful alt text, intrinsic width and height, and an intentional crop. Prefer real product UI to generated mockups.
-- Do not add a framework, dependency, build step, JavaScript interaction, or new abstraction for content that existing HTML and CSS can express.
+- Do not add another framework, dependency, JavaScript interaction, or new abstraction for content that existing Slim and CSS can express.
 
 ## Case-study rules
 
@@ -71,8 +76,8 @@ Trace technical claims to the current product, repository, or owner evidence. Ne
 ## SEO and publishing rules
 
 - Every public page needs a unique title, description, canonical URL, Open Graph title/description/URL/image, favicon, font declaration, and `/css/site.css`.
-- Add or remove public routes in `sitemap.xml` at the same time as the page.
-- Review `manifest.json`, `robots.txt`, `CNAME`, Person JSON-LD, navigation, footer, and résumé when site identity changes.
+- Add or remove public routes in `source/sitemap.xml` at the same time as the page.
+- Review `source/manifest.json`, `source/robots.txt`, `source/CNAME`, Person JSON-LD, navigation, footer, and résumé when site identity changes.
 - Keep GitHub Pages path behavior in mind; verify nested routes and the custom 404 page from a local server before publishing.
 
 ## Verification
@@ -81,13 +86,13 @@ For content-only changes:
 
 - Search for stale versions of the changed claim.
 - Confirm affected links and local targets.
-- Run `rtk git diff --check`.
+- Run `rtk bundle exec middleman build`, `rtk bundle exec ruby script/check_build.rb`, and `rtk git diff --check`.
 
 For page, layout, or image changes, also:
 
-1. Start a local server with `rtk python3 -m http.server 4173 --bind 127.0.0.1`.
+1. Start the Middleman server with `rtk bundle exec middleman server`.
 2. Check affected pages near `1440px` desktop and `390px` mobile widths.
 3. Confirm expected content, active navigation, image loading, keyboard focus, no horizontal overflow, and no console errors.
-4. Parse all public HTML and check one `h1`, unique IDs, local targets, image alt/dimensions, external-link rel attributes, valid manifest JSON, and valid sitemap XML.
+4. Parse generated public HTML in `build/` and check one `h1`, unique IDs, local targets, image alt/dimensions, external-link rel attributes, valid manifest JSON, and valid sitemap XML.
 
 Keep focused checks, whole-site structural checks, browser checks, and production/deployment evidence separate in the final report.

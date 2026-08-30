@@ -1,0 +1,87 @@
+---
+title: Papereg Case Study — Renat Ibragimov
+description: 'How Renat Ibragimov built Papereg: AI document parsing, OCR, form workflows,
+  batch ingestion, review, reporting, and exports.'
+canonical: https://aomega.co/work/papereg/
+og_title: Papereg Case Study — Renat Ibragimov
+og_description: Turning paper forms and scans into reviewable digital workflows.
+og_url: https://aomega.co/work/papereg/
+og_image: https://aomega.co/img/projects/papereg.jpg
+nav: work
+---
+
+main#main
+  header.case-hero.shell
+    div.case-hero-copy
+      span.eyebrow Case study · AI document workflows
+      h1 Papereg
+      p.hero-lede A document digitization platform that turns PDFs, photos, scans, and handwriting into structured forms and reviewable records.
+      div.button-row
+        a.button.button-primary href="https://papereg.com" target="_blank" rel="noreferrer" Visit Papereg ↗
+        a.button.button-secondary href="/work/" All projects
+    dl.case-facts
+      div.case-fact
+        dt Role
+        dd Product engineer and owner
+      div.case-fact
+        dt Focus
+        dd AI, OCR, forms, workflows, reporting
+      div.case-fact
+        dt Stack
+        dd Elixir, Phoenix, PostgreSQL, AI APIs
+      div.case-fact
+        dt Status
+        dd Independent product · Active
+  div.case-media.shell
+    img src="/img/projects/papereg.jpg" alt="Papereg homepage showing its AI document digitization product" width="1440" height="900"
+  section.section.shell.case-layout
+    div.prose
+      section
+        span.eyebrow The problem
+        h2 Paper workflows hide useful data.
+        p Organizations still depend on PDFs, phone photos, scanned packets, signatures, and handwritten records. Re-entering that information wastes time, creates mistakes, and makes reporting difficult. Simple online form builders do not preserve the structure of real documents or help with existing backlogs.
+      section
+        span.eyebrow The product
+        h2 One path from document to usable record.
+        p Papereg combines form design, public and authenticated submission, document ingestion, AI extraction, human review, workflow state, analytics, and export.
+        ul
+          li Convert an uploaded PDF into a proposed digital form with detected fields, labels, sections, and layout.
+          li Create forms from plain-language descriptions and review the proposed structure before creation.
+          li Fill drafts from text, photos, scans, handwriting, or multi-page documents.
+          li Process batches of documents while preserving successful results and retrying only failures.
+          li Build complex forms with tabs, sections, related fields, signatures, files, media, and validation.
+          li Use industry templates, dashboards, reports, and PDF or spreadsheet exports.
+      section
+        span.eyebrow The AI boundary
+        h2 Models propose. Product rules decide.
+        p AI output enters the product as a proposal, not unquestioned truth. Users can review generated fields and extracted values before saving or submitting. Batch processing exposes created and failed records separately so uncertainty is visible and recoverable.
+        p The workspace assistant is role-aware. It can help users query authorized data, create forms, add fields, and fill drafts, but it cannot delete data, approve records, change permissions, or configure integrations.
+      section
+        span.eyebrow Engineering ownership
+        h2 The unglamorous parts are part of the product.
+        p I owned the product workflows, data structures, AI-provider boundary, ingestion and retry behavior, review states, permissions, dashboards, exports, deployment, and public product presentation. The goal was not a document demo; it was a system that remains understandable when files fail, users disagree with extraction, and different roles need different authority.
+    aside.case-aside aria-label="Papereg summary"
+      div.aside-card
+        h2 Core capabilities
+        ul
+          li AI PDF parsing
+          li Handwriting and image OCR
+          li Batch document ingestion
+          li Human review and retries
+          li Role-aware assistant
+          li Reports and exports
+      div.aside-card
+        h2 What this demonstrates
+        ul
+          li Complex workflow modeling
+          li AI guardrails
+          li Product and UI ownership
+          li Failure-aware processing
+          li End-to-end SaaS delivery
+  section.section.shell
+    div.cta
+      div.cta-copy
+        span.eyebrow Next case study
+        h2 ResellerIO
+        p See how product photos become reviewed inventory, pricing context, prepared images, and marketplace-ready drafts.
+      a.button.button-primary href="/work/resellerio/" Read the case study
