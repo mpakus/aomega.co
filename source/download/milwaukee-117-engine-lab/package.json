@@ -1,0 +1,10 @@
+{
+  "name": "milwaukee-117-engine-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable static Three.js engine explorer. No build or npm install required.",
+  "scripts": {
+    "check": "node verify.mjs"
+  }
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#141719">
+  <meta name="description" content="Explore a Milwaukee-Eight 117 V-twin in an interactive 3D engine lab. Run the engine, study the four-stroke cycle, and inspect and disassemble individual components.">
+  <title>Milwaukee-Eight 117 — Engine Lab</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<script>if(location.protocol === "file:") location.replace("./standalone.html");</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Engine Lab home"><span class="brand-mark">E<span>/</span>L</span><span>ENGINE LAB<span class="brand-sub">MECHANICS, REVEALED.</span></span></a>
+    <div class="header-model">HARLEY-DAVIDSON <span>/</span> MILWAUKEE-EIGHT 117</div>
+    <button class="quiet" id="about-open"><span class="circle-i">i</span> Model & sources</button>
+  </header>
+  <main>
+    <section class="titlebar"><div><div class="eyebrow">THE BIG TWIN · 2023 LOW RIDER ST</div><h1>Milwaukee-Eight <span>117</span></h1></div><div class="spec-strip"><div><strong>1,923<span>cc</span></strong><small>DISPLACEMENT</small></div><div><strong>45<span>°</span></strong><small>V-TWIN</small></div><div><strong>8</strong><small>VALVES</small></div></div></section>
+    <div class="workspace">
+      <aside class="catalog panel" id="catalog">
+        <div class="panel-heading"><h2>Components</h2><span class="count" id="part-count">—</span></div>
+        <label class="searchbox"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" placeholder="Find a part…" aria-label="Search components" autocomplete="off"><kbd>/</kbd></label>
+        <div id="parts-list" class="parts-list"></div>
+        <div class="catalog-footer"><span id="visible-count"></span><button id="restore-all" class="text-button">Restore all</button></div>
+      </aside>
+      <section class="viewport" aria-label="Interactive engine viewer">
+        <div class="viewport-top"><div class="segmented" aria-label="View mode"><button class="active" data-mode="solid" aria-pressed="true">Assembled</button><button data-mode="xray" aria-pressed="false">X-ray</button><button data-mode="cutaway" aria-pressed="false">Cutaway</button></div><button id="labels" class="tool-button" aria-pressed="false" title="Toggle component labels">Labels</button></div>
+        <div id="canvas-wrap"><div id="loading"><span class="loader"></span>Assembling the engine…</div><div id="label-layer"></div><div id="hover-label"></div></div>
+        <div class="stage-info"><span class="stage-badge" id="view-badge">ASSEMBLED VIEW</span><span id="selection-hint">Click any part to explore</span></div>
+        <div class="orientation"><span>VIEW</span><button data-camera="iso" class="active" title="Isometric view">3D</button><button data-camera="right" title="Right side, cam cover">R</button><button data-camera="left" title="Left side, output shaft">L</button><button data-camera="front" title="Front of motorcycle">F</button><button data-camera="top" title="Top view">T</button><button id="reset-camera" title="Fit all visible parts" aria-label="Fit all visible parts">⌖</button></div>
+        <div class="viewport-bottom"><span>Drag to orbit <b>·</b> Scroll to zoom <b>·</b> Right-drag to pan</span><button id="auto-orbit" aria-pressed="false" class="text-button">Auto orbit</button></div>
+      </section>
+      <aside class="inspector panel">
+        <div class="panel-heading"><h2>Part inspector</h2><span class="eyebrow" id="part-id">OVERVIEW</span></div>
+        <div id="part-detail" class="part-detail"></div>
+        <section class="cycle-panel"><div class="section-kicker">LIVE COMBUSTION</div><div class="cylinder-status"><span>Front cylinder</span><strong id="front-stage">Ready</strong></div><div class="stroke-track" id="front-track"></div><div class="cylinder-status"><span>Rear cylinder</span><strong id="rear-stage">Ready</strong></div><div class="stroke-track" id="rear-track"></div><div class="stroke-legend"><span class="intake">Intake</span><span class="compression">Compression</span><span class="power">Power</span><span class="exhaust">Exhaust</span></div><p id="cycle-info">Start the engine to follow each cylinder through its four-stroke cycle.</p><div class="firing-note"><span>FIRING INTERVAL</span><b>315° / 405°</b></div></section>
+      </aside>
+    </div>
+    <section class="controls panel">
+      <div class="transport"><div class="section-kicker">IGNITION</div><div class="ignition-row"><button id="start" class="primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9M6.5 5.8a8 8 0 1 0 11 0"/></svg><span>Start engine</span></button><button id="pause" class="square" aria-label="Pause animation" title="Pause animation" disabled>Ⅱ</button><button id="step" class="square" aria-label="Advance crankshaft by 15 degrees" title="Step 15°">↦</button></div><div class="engine-status"><span id="status-dot"></span><span id="engine-status" aria-live="polite">Engine off</span></div></div>
+      <div class="speed-control"><div class="control-label"><label for="rpm">ENGINE SPEED</label><strong><span id="rpm-value">850</span> <small>RPM</small></strong></div><input id="rpm" type="range" min="850" max="5000" step="50" value="850"><div class="control-foot"><label for="playback">Playback</label><select id="playback"><option value="0.015">Study · 0.015×</option><option value="0.05" selected>Slow · 0.05×</option><option value="0.25">Quarter · 0.25×</option><option value="1">Real time · 1×</option></select></div></div>
+      <div class="crank-control"><div class="control-label"><label for="crank">4-STROKE CYCLE</label><strong id="crank-value">0° <small>/ 720°</small></strong></div><input id="crank" type="range" min="0" max="720" step="1" value="0"><div class="control-foot"><span>Scrub to inspect timing</span><button class="text-button" id="cycle-guide">Cycle guide ↗</button></div></div>
+      <div class="disassembly-control"><div class="control-label"><label for="explode">DISASSEMBLY</label><strong id="explode-value">0<small>%</small></strong></div><input id="explode" type="range" min="0" max="100" step="1" value="0"><div class="control-foot"><button class="text-button" id="reassemble">Reassemble</button><button class="text-button orange" id="explode-all">Explode all ↗</button></div></div>
+    </section>
+    <section class="teardown"><div><span class="section-kicker">GUIDED TEARDOWN</span><span id="teardown-note">Explore the assembled engine, then uncover its layers.</span></div><div class="teardown-controls"><button id="teardown-prev" class="square" aria-label="Previous teardown step" disabled>←</button><span><b id="teardown-step">0</b> / 8</span><button id="teardown-next" class="next-button">Next layer <span>→</span></button></div></section>
+    <footer><span>Interactive educational model · Simplified geometry & timing · Not a service manual</span><span>THREE.JS <b>/</b> ENGINE STUDY 001</span></footer>
+  </main>
+  <dialog id="info-dialog"><div class="dialog-heading"><span class="eyebrow">ENGINE LAB / REFERENCE</span><button class="square" id="dialog-close" aria-label="Close dialog">×</button></div><div id="dialog-content"></div></dialog>
+  <div id="toast" role="status"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
