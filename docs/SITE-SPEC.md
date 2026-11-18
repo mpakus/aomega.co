@@ -206,7 +206,7 @@ The shared page background includes a native CSS Aurora in violet, pink, and dee
 - Root-relative URLs keep nested pages consistent.
 - The homepage carries Person JSON-LD. Add more structured data only when the visible content supports it.
 - New public pages must be added to `source/sitemap.xml`. Site-wide identity changes must also be reviewed in `source/manifest.json`, `source/robots.txt`, `source/CNAME`, the résumé, navigation, and footer.
-- `.github/workflows/pages.yml` builds and uploads `build/` with GitHub's Pages artifact workflow. The repository's Pages source must be set to GitHub Actions before the first deployment.
+- `.github/workflows/pages.yml` builds on `ubuntu-24.04`, which provides the Ruby 3.4.2 version pinned in `.ruby-version`, and uploads `build/` with GitHub's Pages artifact workflow. The repository's Pages source must be set to GitHub Actions before the first deployment.
 - Keep current pages independent of legacy files under `source/prev/`, older CSS/JS bundles, and archived assets.
 
 ## Image and preview rules
