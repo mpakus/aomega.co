@@ -1,10 +1,10 @@
 ---
 title: Selected Work — Renat Ibragimov
-description: Selected SaaS, AI, desktop, mobile, data, and developer tools built by
-  senior software engineer Renat Ibragimov.
+description: Selected products, AI agent skills, an Elixir/Phoenix harness, and open
+  source software by senior software engineer Renat Ibragimov.
 canonical: https://aomega.co/work/
 og_title: Selected Work — Renat Ibragimov
-og_description: Production products across AI, SaaS, education, mobile, and data.
+og_description: Production products, tools for AI coding agents, and open source desktop and database software.
 og_url: https://aomega.co/work/
 og_image: https://aomega.co/img/projects/papereg.jpg
 nav: work
@@ -15,6 +15,7 @@ main#main
     span.eyebrow Selected work
     h1 Products I have taken from idea to reality.
     p Independent products let me own every layer: product definition, architecture, data, UI, AI workflows, operations, and the decisions required to keep a product useful.
+  = partial "partials/agent_tools"
   section.section-compact.shell aria-labelledby="featured-projects"
     div.section-heading.single
       div
@@ -114,23 +115,24 @@ main#main
       div
         span.eyebrow Desktop products
         h2#desktop-products Native tools for work that stays yours.
-      p These open-source macOS products keep local files and Git at the center while adding focused interfaces around them.
+      p These open-source desktop products keep local files and Git at the center while adding focused interfaces around them.
     div.project-grid
       article.project-card
-        a.project-card-media href="https://github.com/mpakus/1537paperstreet" target="_blank" rel="noreferrer" tabindex="-1" aria-hidden="true"
-          img src="/img/projects/1537paperstreet.jpg" alt="1537paperstreet Markdown workspace on macOS" width="2549" height="1365" loading="lazy"
+        a.project-card-media href="https://1537paperstreet.org/" target="_blank" rel="noreferrer" tabindex="-1" aria-hidden="true"
+          img src="/img/projects/1537paperstreet.jpg" alt="1537paperstreet showing local folders, a file tree, a table of contents, and a rendered Markdown note" width="1560" height="960" loading="lazy"
         div.project-card-body
           div.project-card-topline
             span.project-number 07
-            span.project-kind Local-first Markdown workspace
+            span.project-kind Local-first Markdown and PDF workspace
           h3
-            a href="https://github.com/mpakus/1537paperstreet" target="_blank" rel="noreferrer" 1537paperstreet
-          p A native macOS workspace for ordinary Markdown folders with rich preview, editing, diagrams, math, PDF export, and optional local coding agents.
+            a href="https://1537paperstreet.org/" target="_blank" rel="noreferrer" 1537paperstreet
+          p A local-first Markdown and PDF workspace for macOS, Linux, and Windows, with live Split preview, password-protected notes, tags, a document graph, and optional local coding agents.
           ul.tag-list aria-label="1537paperstreet technologies"
             li.tag Rust
             li.tag Tauri
             li.tag Svelte
             li.tag Local first
+          a.text-link href="https://github.com/mpakus/1537paperstreet" target="_blank" rel="noreferrer" 1537paperstreet source on GitHub
       article.project-card
         a.project-card-media href="https://github.com/mpakus/gitronimo" target="_blank" rel="noreferrer" tabindex="-1" aria-hidden="true"
           img src="/img/projects/gitronimo.jpg" alt="GitRonimo native Git client on macOS" width="1490" height="1122" loading="lazy"
@@ -146,6 +148,28 @@ main#main
             li.tag GPUI
             li.tag Git
             li.tag macOS
+  section.section.shell aria-labelledby="open-source"
+    div.section-heading
+      div
+        span.eyebrow Open source software
+        h2#open-source Focused tools, shared in the open.
+      p A desktop model viewer, a coding companion, and database tools for MCP clients. Each solves a specific workflow problem.
+    div.panel-grid
+      article.panel
+        span.panel-index 3D
+        h3
+          a href="https://github.com/mpakus/yo3mfs" target="_blank" rel="noreferrer" YO3MFS
+        p An offline Rust desktop viewer for 3MF, STL, STEP, OBJ, glTF/GLB, and PLY files, with Bambu Studio colors, camera controls, and model inspection. Original files stay untouched.
+      article.panel
+        span.panel-index MAC
+        h3
+          a href="https://github.com/mpakus/focus-island" target="_blank" rel="noreferrer" Focus Island
+        p My fork of Focus Island, a macOS companion for Claude Code and Codex with session monitoring, a task board, and focus timers. Codex monitoring is an opt-in preview.
+      article.panel
+        span.panel-index MCP
+        h3
+          a href="https://github.com/mpakus/mcp-server-db" target="_blank" rel="noreferrer" Database MCP servers
+        p Elixir MCP servers for MySQL and PostgreSQL, with SQL tools and table metadata over stdio or authenticated HTTP. Writes are disabled by default.
   section.section.shell
     div.section-heading
       div
@@ -164,10 +188,6 @@ main#main
       a.article-card href="https://chromewebstore.google.com/detail/github-pr-review/iihladoicepmaodjmoaphgnkadomnhco" target="_blank" rel="noreferrer"
         span.article-topic Developer tools
         h3 GitHub PR Review browser extension
-        span.article-arrow aria-hidden="true" ↗
-      a.article-card href="https://github.com/mpakus/harness-elixir" target="_blank" rel="noreferrer"
-        span.article-topic Elixir · Agent workflows
-        h3 Elixir + Phoenix Codex Harness
         span.article-arrow aria-hidden="true" ↗
   section.section.shell
     div.cta

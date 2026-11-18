@@ -15,6 +15,9 @@ Keep the generated site static and the Middleman/Slim toolchain minimal. Add mac
 - [x] Add Work, AI, Experience, Writing, About, Contact, and 404 pages.
 - [x] Add full case studies for Papereg, ResellerIO, Oceanowledge, Eos Learning, Texas Heavy, and HermIIS.
 - [x] Add 1537paperstreet, GitRonimo, the Elixir/Phoenix harness, and real project imagery.
+- [x] Feature Rails Update and the Elixir/Phoenix harness on Home, Work, and AI; add YO3MFS, the Focus Island fork, and database MCP servers to Work (2026-11-17).
+- [x] Link 1537paperstreet's product website with a current public screenshot, and add five articles on Markdown workspaces, AI model comparisons, randomness, MCP databases, and Rails upgrades (2026-11-17).
+- [x] Explain the working AI toolkit, including XERJ, RTK, Ponytail, and a grouped skill selection, on AI; summarize it in Experience's “Tools follow the problem” section and shorten the Writing contact button to “Email” (2026-11-17).
 - [x] Distinguish direct product companies from supported customer environments.
 - [x] Position Scaled Factorial Product correctly as AI outsourcing.
 - [x] Establish a shared dark visual system, responsive navigation, accessible focus states, reduced-motion handling, and reusable static components.
@@ -83,7 +86,7 @@ Done when:
 
 ### 3. Give desktop products full case studies
 
-Create local pages for 1537paperstreet and GitRonimo after there is enough stable material to explain their problem, product decisions, local-first or Git safety boundary, and current release state. Keep GitHub as the primary source link.
+Create local pages for 1537paperstreet and GitRonimo after there is enough stable material to explain their problem, product decisions, local-first or Git safety boundary, and current release state. Link to each product's website when available and retain GitHub as the engineering source.
 
 Done when:
 

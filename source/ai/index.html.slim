@@ -1,10 +1,10 @@
 ---
-title: AI Engineering — Renat Ibragimov
-description: Practical AI product engineering across document intelligence, commerce,
-  MCP, localization, and developer workflows.
+title: AI Agents & Product Engineering — Renat Ibragimov
+description: My AI toolkit, from Codex, Claude Code, and Cursor to XERJ, RTK,
+  Ponytail, reusable skills, Rails upgrades, and Elixir/Phoenix development.
 canonical: https://aomega.co/ai/
-og_title: AI Engineering — Renat Ibragimov
-og_description: How I turn AI models into reviewable, permission-aware product capabilities.
+og_title: AI Agents & Product Engineering — Renat Ibragimov
+og_description: Coding agents, research tools, XERJ, RTK, Ponytail, and the skills behind my AI engineering workflow.
 og_url: https://aomega.co/ai/
 og_image: https://aomega.co/img/projects/papereg.jpg
 nav: ai
@@ -12,9 +12,98 @@ nav: ai
 
 main#main
   header.page-hero.page-hero-wide.shell
-    span.eyebrow AI engineering
-    h1 I build the system around the model.
-    p Useful AI features need more than a prompt. They need clear permissions, structured outputs, review states, retries, observability, cost boundaries, and a deterministic path when the model is uncertain.
+    span.eyebrow AI agents and product engineering
+    h1 I build the workflow around AI.
+    p I build skills and repository harnesses for AI coding agents, alongside AI product features. Clear context, permissions, structured outputs, tests, and verification make the work dependable.
+  = partial "partials/agent_tools"
+  section.section.shell aria-labelledby="ai-toolkit"
+    div.section-heading
+      div
+        span.eyebrow My working toolkit
+        h2#ai-toolkit Every tool has a job.
+      p I use AI for research, implementation, debugging, and review. I choose the tool for the task, give it relevant context, and verify the result against sources and working software.
+    div.skill-groups
+      article.skill-group
+        h3 Coding and review
+        p Codex, Claude Code, and Cursor help me explore codebases, implement focused changes, debug failures, write tests, and review work. Clear scope, repository instructions, and local checks keep the changes reviewable.
+      article.skill-group
+        h3 Research and learning
+        p I use ChatGPT and Claude to explore unfamiliar topics, compare approaches, and turn research into readable notes. Asking different models the same question helps me examine their assumptions and check the evidence behind an answer.
+      article.skill-group
+        h3 Code and application context
+        p
+          a href="https://xerj.org/" target="_blank" rel="noreferrer" XERJ
+          '  helps me retrieve relevant source and reference implementations from indexed repositories.
+          a href="https://tidewave.ai/" target="_blank" rel="noreferrer" Tidewave
+          |  adds context from a running Rails or Phoenix app; MCP connects agents to tools and data through explicit access.
+      article.skill-group
+        h3 Focused execution
+        p
+          a href="https://github.com/rtk-ai/rtk" target="_blank" rel="noreferrer" RTK
+          '  trims noisy command output before it reaches the agent’s context.
+          a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noreferrer" Ponytail
+          |  guides agents toward the smallest complete change, reuse of existing code, and the checks needed to verify the result.
+      article.skill-group
+        h3 Reusable instructions
+        p Skills, AGENTS.md, my Rails Update skill, and my Elixir/Phoenix harness turn recurring work into repeatable workflows. I keep product facts, constraints, and verification steps close to the code.
+        a.text-link href="#ai-skills" Browse the skills
+      article.skill-group
+        h3 Product integrations
+        p I use OpenAI and DeepL APIs in localization workflows and build MCP access for product capabilities and SQL databases. Permissions and human review stay part of the surrounding product.
+  section.section-compact.shell aria-labelledby="ai-skills"
+    div.section-heading
+      div
+        span.eyebrow Reusable skills
+        h2#ai-skills Skills for each stage of the work.
+      p A selection from my skill library. I choose the instructions that fit the task and the repository, from understanding a problem to checking and delivering the change.
+    div.skill-groups
+      article.skill-group
+        h3 Planning and architecture
+        ul.check-list
+          li spec-driven-development
+          li planning-and-task-breakdown
+          li context-engineering
+          li api-and-interface-design
+          li source-driven-development
+      article.skill-group
+        h3 Implementation and debugging
+        ul.check-list
+          li ponytail
+          li incremental-implementation
+          li test-driven-development
+          li debugging-and-error-recovery
+          li code-simplification
+      article.skill-group
+        h3 Review and reliability
+        ul.check-list
+          li code-review-and-quality
+          li security-and-hardening
+          li performance-optimization
+          li observability-and-instrumentation
+          li git-workflow-and-versioning
+      article.skill-group
+        h3 Web and browser quality
+        ul.check-list
+          li frontend-ui-engineering
+          li frontend-design
+          li better-accessibility
+          li browser-testing-with-devtools
+          li playwright
+      article.skill-group
+        h3 Frameworks and platforms
+        ul.check-list
+          li rails-update
+          li otp-essentials
+          li rust-router
+          li react-native-mobile
+          li expo-apps
+          li write-swift
+      article.skill-group
+        h3 Delivery and documentation
+        ul.check-list
+          li ci-cd-and-automation
+          li shipping-and-launch
+          li documentation-and-adrs
   section.section-compact.shell
     div.panel-grid
       article.panel

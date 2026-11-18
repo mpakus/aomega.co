@@ -58,11 +58,11 @@ All public directory routes use a trailing slash and an `index.html` file.
 
 | Route | Purpose | Required content |
 | --- | --- | --- |
-| `/` | Positioning and proof | Hero, availability, career proof, selected work, practical AI, experience preview, writing preview, contact CTA |
-| `/work/` | Complete product portfolio | Featured case studies, desktop products, smaller tools, product-ownership CTA |
+| `/` | Positioning and proof | Hero, availability, career proof, featured AI agent tools, selected work, practical AI, experience preview, writing preview, contact CTA |
+| `/work/` | Complete product portfolio | Featured AI agent tools, case studies, desktop products, open source software, smaller tools, product-ownership CTA |
 | `/work/<slug>/` | Product case study | Hero, facts, screenshot, problem, product, boundary or reliability discussion, ownership, proof summary, next project |
-| `/ai/` | AI engineering approach | Principles, product examples, integration work, human-control boundaries, contact CTA |
-| `/experience/` | Professional record | Roles, outcomes, companies versus customer environments, independent products, skills, education |
+| `/ai/` | AI agents and product engineering | Featured Rails Update skill and Elixir/Phoenix harness, working toolkit, grouped skill library, principles, product examples, integration work, human-control boundaries, contact CTA |
+| `/experience/` | Professional record | Roles, outcomes, companies versus customer environments, independent products, core skills including AI tools and agent workflows, education |
 | `/writing/` | Published thinking | Descriptive article links grouped by topic and a conversation CTA |
 | `/about/` | Personal engineering narrative | Career path, working principles, portrait, availability CTA |
 | `/contact/` | Conversion page | Email, LinkedIn, GitHub, good-fit work, résumé CTA |
@@ -90,10 +90,26 @@ Every current public page uses the same three-line footer: `Renat Ibragimov`, `S
 
 | Product | Positioning | Current destination |
 | --- | --- | --- |
-| 1537paperstreet | Local-first Markdown workspace for macOS | GitHub repository |
+| 1537paperstreet | Local-first Markdown and PDF workspace for macOS, Linux, and Windows | [Product website](https://1537paperstreet.org/) and [GitHub source](https://github.com/mpakus/1537paperstreet) |
 | GitRonimo | Native Rust/GPUI Git client for macOS | GitHub repository |
-| Elixir + Phoenix Codex Harness | Agent-assisted Elixir/Phoenix development guidance | GitHub repository |
+| Rails Update | Reusable Ruby/Rails upgrade skill for Cursor, Claude Code, and Codex | [GitHub repository](https://github.com/mpakus/rails-update) |
+| Elixir + Phoenix Codex Harness | Repository harness and focused engineering guidance for AI agents building Elixir/Phoenix applications | [GitHub repository](https://github.com/mpakus/harness-elixir) |
+| YO3MFS | Offline Rust desktop viewer for 3MF, STL, STEP, OBJ, glTF/GLB, and PLY models | [GitHub repository](https://github.com/mpakus/yo3mfs) |
+| Focus Island | Renat's fork of the macOS coding companion; Codex monitoring is an opt-in preview | [GitHub fork](https://github.com/mpakus/focus-island) |
+| Database MCP servers | Elixir MySQL/PostgreSQL MCP tools over stdio or authenticated HTTP; writes disabled by default | [GitHub repository](https://github.com/mpakus/mcp-server-db) |
 | GitHub PR Review | Browser extension for developer review workflows | Chrome Web Store |
+
+The shared `source/partials/_agent_tools.slim` section gives Rails Update and the Elixir/Phoenix harness prominent placement on Home, Work, and AI. Descriptions for those two tools, 1537paperstreet, YO3MFS, Focus Island, and database MCP servers were refreshed from the public website and repository READMEs on 2026-11-17; version-specific release claims are intentionally omitted.
+
+### AI working toolkit
+
+The AI page explains how Renat uses coding agents, research assistants, source retrieval, application context, compact command output, and reusable instructions. Experience keeps a compact summary under “Tools follow the problem” and links to `/ai/#ai-toolkit`. The grouped skill list is a selection from the installed engineering library, rather than a claim that every skill runs on every task.
+
+Sources checked on 2026-11-17:
+
+- Renat's published AI experiments and current Rails/Phoenix project setup support the coding, research, Tidewave, and MCP workflow descriptions. The existing résumé supports OpenAI and DeepL localization work.
+- Renat explicitly named XERJ, RTK, Ponytail, and skills for inclusion. Installed CLI help, project research notes, active repository instructions, and skill files establish their roles.
+- [XERJ](https://xerj.org/), [Tidewave](https://tidewave.ai/), [RTK](https://github.com/rtk-ai/rtk), and [Ponytail](https://github.com/DietrichGebert/ponytail) provide public tool references. Tool availability, model versions, benchmark savings, and complete indexing are not implied.
 
 ### Other products
 
@@ -201,6 +217,7 @@ The shared page background includes a native CSS Aurora in violet, pink, and dee
 - Preserve aspect ratio and record intrinsic dimensions in HTML.
 - Optimize assets before publishing; avoid replacing a good screenshot merely to change its file format.
 - Current key previews document the home page, mobile layout, project grid, Papereg, HermIIS, desktop products, and organization section.
+- The 1537paperstreet card image was refreshed on 2026-11-17 from the public [product screenshot](https://1537paperstreet.org/media/reading.png), saved as an optimized JPEG at its original `1560 × 960` dimensions, and displayed with the existing card crop.
 
 ## Verification checklist
 
